@@ -1,0 +1,16 @@
+<app-navbar></app-navbar>
+<!--<ng-snotify></ng-snotify>-->
+<div class="container">
+  <section class="contenido-header"  id="home">
+    <section class="textos-header">
+      <h1>Una app con las mejores tecnologias</h1>
+      <p>Orden de pedidos con Angular 10 & Laravel 7</p>
+      <a *ngIf="!loggedIn" routerLink="/home/login">Ingresa</a>
+      <a *ngIf="loggedIn" routerLink="/admin/profile">Inicio</a>
+    </section>
+    <img src="./assets/img/segundaIlustracion.svg" alt="">
+  </section>
+</div>
+
+<router-outlet></router-outlet>
+

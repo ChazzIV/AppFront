@@ -1,0 +1,64 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs titulo="Usuarios"></app-breadcrumbs>
+    <section class="content">
+      <!-- Button trigger modal -->
+      <button routerLink="/admin/users-form" type="button" class="btn btn-outline-primary" >
+        Agregar Usuario <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+
+      <hr>
+      <div class="table-responsive">
+        <table  *ngIf="!cargando && usuarios.length > 0" class="table mt-3 ">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Fecha de alta</th>
+            <th scope="col">Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let usuario of usuarios; let i = index">
+            <th scope="row">{{usuario.id}}</th>
+            <td>{{usuario.name}}</td>
+            <td>{{usuario.email}}</td>
+            <td>{{usuario.created_at}}</td>
+            <td>
+              <a class="btn btn-info mr-1" routerLink="/admin/users-form/{{usuario.id}}">
+                <i class="fas fa-pen"></i>
+              </a>
+              <a class="btn btn-danger mr-1" >
+                <i class="fas fa-trash" style="color: #fff;"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div *ngIf="cargando" class="alert alert-info text-center mt-3" role="alert">
+        <h4>cargando..</h4>
+        <p>
+          <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+          Espere por favor
+        </p>
+      </div>
+
+      <div *ngIf="!cargando && usuarios .length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster" role="alert">
+        <h4>No hay registros</h4>
+        <p class="mb-0">
+          <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+      </div>
+
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

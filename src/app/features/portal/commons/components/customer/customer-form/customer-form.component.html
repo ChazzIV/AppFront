@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs titulo="Agregar nuevo cliente"></app-breadcrumbs>
+
+    <div class="row text-right">
+      <div class="col">
+        <button class="btn btn-danger" routerLink="/admin/customer">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Regresar
+        </button>
+      </div>
+    </div>
+
+
+    <section class="content">
+      <div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input [(ngModel)]="clientes.nombre" type="text" class="form-control" id="nombre">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="tel">Teléfono</label>
+            <input [(ngModel)]="clientes.tel" type="tel" class="form-control" id="tel">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input [(ngModel)]="clientes.email" type="email" class="form-control" id="email" placeholder="example@example.com">
+        </div>
+        <button (click)="saveCliente()" class="btn btn-primary">Guardar</button>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>

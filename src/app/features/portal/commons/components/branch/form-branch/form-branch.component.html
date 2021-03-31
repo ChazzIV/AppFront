@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs titulo="Agregar Sucursal"></app-breadcrumbs>
+
+    <div class="row text-right">
+      <div class="col">
+        <button class="btn btn-danger" routerLink="/admin/branch">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Regresar
+        </button>
+      </div>
+    </div>
+
+
+    <section class="content">
+      <div>
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="nombre">Nombre</label>
+            <input [(ngModel)]="sucursales.nombre" type="text" class="form-control" id="nombre">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="rfc">RFC</label>
+            <input [(ngModel)]="sucursales.rfc" type="text" class="form-control" id="rfc">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="direccion">Dirección</label>
+            <input [(ngModel)]="sucursales.direccion" type="text" class="form-control" id="direccion">
+          </div>
+          <div class="form-group col-md-6">
+            <label for="tel">Teléfono</label>
+            <input [(ngModel)]="sucursales.tel" type="tel" class="form-control" id="tel">
+          </div>
+        </div>
+        <button (click)="saveSucursal()" class="btn btn-primary">Guardar</button>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>
+

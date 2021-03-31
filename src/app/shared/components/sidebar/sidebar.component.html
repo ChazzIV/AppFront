@@ -1,0 +1,119 @@
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <a routerLink="/admin/profile" class="brand-link logo-switch">
+    <img src="https://jaxenter.de/wp-content/uploads/2016/01/angularjs_2_0-log-500x375.jpg"
+         alt="AdminLTE Docs Logo Small"
+         class="brand-image-xl logo-xs">
+    <!--<img src="https://jaxenter.de/wp-content/uploads/2016/01/angularjs_2_0-log-500x375.jpg"-->
+         <!--alt="AdminLTE Docs Logo Large"-->
+         <!--class="brand-image-xs logo-xl" style="left: 12px">-->
+    <span class="brand-text font-weight-bold" style="left: 12px">Angular/Laravel</span>
+  </a>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+
+        <li class="nav-item has-treeview" >
+          <a [routerLink]="['/admin/settings']" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-cog mr-2"></i>
+            <p>
+              Panel Principal
+            </p>
+          </a>
+        </li>
+
+        <div class="dropdown-divider"></div>
+
+        <li class="nav-item has-treeview" >
+          <a routerLink="/admin/customer" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-user-friends mr-2"></i>
+            <p>
+              Clientes
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview" >
+          <a routerLink="/admin/category" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-th-large mr-2"></i>
+            <p>
+              Categorias
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview" >
+          <a routerLink="/admin/products" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-cart-plus mr-2"></i>
+            <p>
+              Productos
+            </p>
+          </a>
+        </li>
+
+        <div class="dropdown-divider"></div>
+
+        <li class="nav-item has-treeview" >
+          <a routerLink="/admin/users" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-users mr-2"></i>
+            <p>
+              Usuarios
+            </p>
+          </a>
+        </li>
+
+        <li class="nav-item has-treeview" >
+          <a routerLink="/admin/branch" class="nav-link" routerLinkActive="active">
+            <i class="fas fa-suitcase mr-2"></i>
+            <p>
+              Sucursal
+            </p>
+          </a>
+        </li>
+
+        <!--<li class="nav-item has-treeview">-->
+        <!--<a href="#" class="nav-link">-->
+        <!--<i class="nav-icon fas fa-edit"></i>-->
+        <!--<p>-->
+        <!--Productos-->
+        <!--<i class="fas fa-angle-left right"></i>-->
+        <!--</p>-->
+        <!--</a>-->
+        <!--<ul class="nav nav-treeview">-->
+        <!--<li class="nav-item">-->
+        <!--<a class="nav-link">-->
+        <!--<i class="far fa-circle nav-icon"></i>-->
+        <!--<p>General Elements</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--<a  class="nav-link">-->
+        <!--<i class="far fa-circle nav-icon"></i>-->
+        <!--<p>Advanced Elements</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--<a  class="nav-link">-->
+        <!--<i class="far fa-circle nav-icon"></i>-->
+        <!--<p>Editors</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--<li class="nav-item">-->
+        <!--<a  class="nav-link">-->
+        <!--<i class="far fa-circle nav-icon"></i>-->
+        <!--<p>Validation</p>-->
+        <!--</a>-->
+        <!--</li>-->
+        <!--</ul>-->
+        <!--</li>-->
+
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

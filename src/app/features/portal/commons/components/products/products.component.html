@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs titulo="Productos"></app-breadcrumbs>
+    <section class="content">
+      <!-- Button trigger modal -->
+      <button routerLink="/admin/product-form" type="button" class="btn btn-outline-primary" >
+        Agregar Producto <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+
+      <hr>
+      <div class="table-responsive">
+        <table *ngIf="!cargando && productos.length > 0"  class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">categoria</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let producto of productos; let i = index">
+            <th scope="row">{{producto.categoria_id}}</th>
+            <td>{{producto.nombre}}</td>
+            <td>{{producto.precio}}</td>
+            <td>
+              <a class="btn btn-info mr-1" routerLink="/admin/product-form/{{producto.id}}">
+                <i class="fas fa-pen"></i>
+              </a>
+              <a class="btn btn-danger mr-1" (click)="borrarProducto(producto.id)">
+                <i class="fas fa-trash" style="color: #fff;"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div *ngIf="cargando" class="alert alert-info text-center mt-3" role="alert">
+        <h4>cargando..</h4>
+        <p>
+          <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+          Espere por favor
+        </p>
+      </div>
+
+      <div *ngIf="!cargando && productos.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster" role="alert">
+        <h4>No hay registros</h4>
+        <p class="mb-0">
+          <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+      </div>
+
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>
+

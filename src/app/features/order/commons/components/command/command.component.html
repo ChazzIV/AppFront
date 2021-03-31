@@ -1,0 +1,146 @@
+<app-navbar></app-navbar>
+<div class="container-fluid">
+  <div class="row">
+
+    <!--Información de los Articulos-->
+    <div class="col-9">
+
+      <div class="row mt-3">
+        <div class="form-group col-4">
+          <label >Categoria</label>
+          <select type="text" class="form-control">
+            <option *ngFor="let categoria of categorias" [ngValue]="categoria.id">{{categoria.nombre}}</option>
+          </select>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="products_id">Producto</label>
+            <select id="products_id" [(ngModel)]="articulo.products_id" size="5" class="form-control selectpicker" [(ngModel)]="articulo.products_id">
+              <option *ngFor="let producto of productos" [ngValue]="producto.id">{{producto.nombre}}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="pprecio_compra">Precio Compra</label>
+            <input [(ngModel)]="articulo.precio_compra" id="pprecio_compra" value="" class="form-control" type="text">
+          </div>
+        </div>
+
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="pcantidad">Cantidad</label>
+            <input [(ngModel)]="articulo.cantidad" type="number" min="1" max="9" id="pcantidad" class="form-control" value="1">
+          </div>
+        </div>
+
+        <div class="col-md-3" style="margin-top:30px">
+          <div class="form-group">
+            <button type="button" id="bt-agregar" (click)="agregar()" class="btn btn-outline-warning">
+              Registrar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table id="detalles" class="table table-bordered table-striped table-hover" style="margin-top: 10px">
+          <thead class="table-success">
+          <th>Acciones</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Compra</th>
+          <th>Subtotal</th>
+          </thead>
+          <tfoot>
+          <tr *ngFor="let articulo of articulos; let i = index">
+            <td >
+              <button type="button" class="btn btn-warning" id="{{i}}" (click)="remover(i)">Remover</button>
+            </td>
+            <td>{{articulo.products_id}}</td>
+            <td>{{articulo.cantidad}}</td>
+            <td>{{articulo.precio_compra}}</td>
+            <td>{{articulo.cantidad * articulo.precio_compra}}</td>
+          </tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>
+            <h1 id="importe_total">0.00</h1>
+          </th>
+          </tfoot>
+          <tbody>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+    <!--Información del pedido-->
+    <div class="col-3">
+
+      <div class="col mt-3 text-right">
+        <button class="btn btn-danger" routerLink="/admin/profile">
+          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          Regresar
+        </button>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="cajero">Cajero</label>
+          <input [(ngModel)]="pedido.cajero" type="text" class="form-control" id="cajero">
+        </div>
+      </div>
+
+      <div class="col">
+        <div class="form-group">
+          <label for="forma_pago">Metodo de pago</label>
+          <input [(ngModel)]="pedido.forma_pago" type="text" class="form-control" id="forma_pago">
+        </div>
+      </div>
+      <hr>
+      <div class="col">
+        <div class="form-group">
+          <input [(ngModel)]="pedido.importe" type="text" class="form-control" id="importe" placeholder="Confirma el importe">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.descuento" type="text" class="form-control" id="descuento" placeholder="Descuento o ingrese 0">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.subtotal" type="text" class="form-control" id="subtotal" placeholder="Subtotal">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.iva" type="text" class="form-control" id="iva" placeholder="Agrega IVA o ingresa 0">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.total" type="text" class="form-control" id="total"
+                 placeholder="Total" style="margin-top:5px;font-weight: bold;">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.pago" type="text" class="form-control" id="pago" placeholder="Confirma el importe"
+                 placeholder="Pago" style="margin-top:5px;">
+        </div>
+
+        <div class="form-group">
+          <input [(ngModel)]="pedido.cambio" type="text" class="form-control" id="cambio" placeholder="Confirma el importe"
+                 placeholder="Cambio" style="margin-top:5px;">
+        </div>
+
+        <button (click)="savePedido()" class="btn btn-primary btn-block">Realizar pedido</button>
+      </div>
+    </div>
+  </div>
+</div>

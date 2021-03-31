@@ -1,0 +1,63 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs titulo="Categorias"></app-breadcrumbs>
+    <section class="content">
+      <!-- Button trigger modal -->
+      <button routerLink="/admin/category-form" type="button" class="btn btn-outline-primary" >
+        Agregar Categoria <i class="fa fa-plus" aria-hidden="true"></i>
+      </button>
+
+      <hr>
+      <div class="table-responsive">
+        <table *ngIf="!cargando && categorias.length > 0"  class="table">
+          <thead class="thead-dark">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripción</th>
+            <th scope="col">Acciones</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let categoria of categorias; let i = index">
+            <th scope="row">{{categoria.id}}</th>
+            <td>{{categoria.nombre}}</td>
+            <td>{{categoria.description}}</td>
+            <td>
+              <a class="btn btn-info mr-1" routerLink="/admin/category-form/{{categoria.id}}">
+                <i class="fas fa-pen"></i>
+              </a>
+              <a class="btn btn-danger mr-1" (click)="borrarCategoria(categoria.id)">
+                <i class="fas fa-trash" style="color: #fff;"></i>
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+      <div *ngIf="cargando" class="alert alert-info text-center mt-3" role="alert">
+        <h4>cargando..</h4>
+        <p>
+          <i class="fa fa-sync-alt fa-spin fa-2x"></i>
+        </p>
+        <p class="mb-0">
+          Espere por favor
+        </p>
+      </div>
+
+      <div *ngIf="!cargando && categorias.length === 0" class="alert alert-warning text-center mt-3 animated fadeIn faster" role="alert">
+        <h4>No hay registros</h4>
+        <p class="mb-0">
+          <i class="fa fa-exclamation fa-2x"></i>
+        </p>
+      </div>
+
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>
+

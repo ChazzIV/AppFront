@@ -1,0 +1,57 @@
+<div class="wrapper">
+  <app-header></app-header>
+  <app-sidebar></app-sidebar>
+  <div class="content-wrapper">
+    <app-breadcrumbs></app-breadcrumbs>
+    <section class="content">
+      <h1 class="titulo">{{titulo | uppercase }}</h1>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div class="small-box bg-info">
+            <div class="inner">
+              <h3>150</h3>
+              <p>Clientes</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user"></i>
+            </div>
+            <a routerLink="/clientes" class="small-box-footer">
+              Más información <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div class="small-box bg-green">
+            <div class="inner">
+              <h3>150</h3>
+              <p>Categorias</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-th-large"></i>
+            </div>
+            <a routerLink="/categorias" class="small-box-footer">
+              Más información <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+          <div class="small-box bg-blue">
+            <div class="inner">
+              <h3>150</h3>
+              <p>Productos</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-shopping-cart"></i>
+            </div>
+            <a routerLink="/productos" class="small-box-footer">
+              Más información <i class="fas fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <app-footer></app-footer>
+</div>
